@@ -6,7 +6,7 @@
 /*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 12:58:46 by emilgarc          #+#    #+#             */
-/*   Updated: 2025/08/05 17:07:37 by emilgarc         ###   ########.fr       */
+/*   Updated: 2025/08/07 16:10:01 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*set_env_path(t_mini *mini, t_command *cmd, char *old_pwd)
 {
 	char	*path;
-	
+
 	if (!cmd->command_name[1])
 	{
 		path = get_env_var_value(mini->env_dict, "HOME");
@@ -45,7 +45,10 @@ int	run_cd(t_mini *mini, t_command *cmd)
 	if (!path)
 		return (1);
 	if (chdir(path) != 0)
-		return (envpath_error(old_pwd, "cd problem with chdir\n"));
+	{
+		envpath_error(old_pwd, "cd: Problem with chdir or directory name.\n");
+		return (1);
+	}
 	new_pwd = getcwd(NULL, 0);
 	if (old_pwd)
 		update_env_var(mini, "OLDPWD", old_pwd);

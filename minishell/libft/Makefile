@@ -54,18 +54,18 @@ CFLAGS			= -Wall -Wextra -Werror -I.
 NAME			= libft.a
 
 %.o: %.c
-		$(CC) -c $(CFLAGS) $?
+		@$(CC) -c $(CFLAGS) $?
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				ar rcs $(NAME) $(OBJS)
+				@ar rcs $(NAME) $(OBJS)
 
 clean:
-				$(RM) $(OBJS) $(BOBJS)
+				@$(RM) $(OBJS) $(BOBJS)
 
 fclean:			clean
-				$(RM) $(NAME)
+				@$(RM) $(NAME)
 
 re:				fclean all
 
