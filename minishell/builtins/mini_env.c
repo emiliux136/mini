@@ -6,7 +6,7 @@
 /*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 12:59:27 by emilgarc          #+#    #+#             */
-/*   Updated: 2025/08/07 16:01:33 by emilgarc         ###   ########.fr       */
+/*   Updated: 2025/08/08 16:51:38 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,52 @@ int	run_env(t_mini *mini, t_command *cmd)
 	{
 		if (current->value)
 			printf("%s=%s\n", current->key, current->value);
-		else
-			printf("%s=\n", current->key);
 		current = current->next;
 	}
 	return (0);
+}
+
+//EXPORT Variable maker
+int	create_env_var(t_mini *mini, char *key)
+{
+	t_env_dict	*new_var;
+	t_env_dict	*last;
+
+	new_var = malloc(sizeof(t_env_dict));
+	if (!new_var)
+		return (ft_error("export: malloc failed"));
+	new_var->key = ft_strdup(key);
+	new_var->value = NULL;
+	new_var->next = NULL;
+	new_var->prev = NULL;
+	if (!mini->env_dict)
+		mini->env_dict = new_var;
+	else
+	{
+		last = mini->env_dict;
+		while (last->next)
+			last = last->next;
+		last->next = new_var;
+		new_var->prev = last;
+	}
+	return (0);
+}
+
+//Check if a variable name is valid names and contain only alphanumeric chars.
+int	is_valid_var_name(char *name)
+{
+	int	i;
+
+	if (!name || !*name)
+		return (0);
+	if (name[0] != '_' && !ft_isalpha(name[0]))
+		return (0);
+	i = 1;
+	while (name[i])
+	{
+		if (name[i] != '_' && !ft_isalnum(name[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

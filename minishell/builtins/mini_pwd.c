@@ -6,12 +6,11 @@
 /*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 13:01:09 by emilgarc          #+#    #+#             */
-/*   Updated: 2025/08/05 13:25:56 by emilgarc         ###   ########.fr       */
+/*   Updated: 2025/08/08 13:38:33 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-
 
 //This function retrieves and prints the current working directory using getcwd.
 //If it fails, it prints an error message and returns 1; otherwise, it returns 0

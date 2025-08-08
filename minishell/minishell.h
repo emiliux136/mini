@@ -6,7 +6,7 @@
 /*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:29:33 by acarro-v          #+#    #+#             */
-/*   Updated: 2025/08/07 15:42:06 by emilgarc         ###   ########.fr       */
+/*   Updated: 2025/08/08 16:49:04 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,18 +100,33 @@ void		og_redir(t_mini *mini, t_command *cmd);
 
 //Builtings
 int			mini_echo(t_mini *mini, t_command *cmd);
-int			run_export(t_mini *mini, t_command *cmd);
 int			run_pwd(t_mini *mini, t_command *cmd);
 int			run_unset(t_mini *mini, t_command *cmd);
 int			run_env(t_mini *mini, t_command *cmd);
 int			run_exit(t_mini *mini, t_command *cmd);
 int			count_args(char **args);
 
+//export
+void		print_export_line(t_env_dict *node);
+void		print_escaped_value(const char *value);
+int			export_strcmp(const char *s1, const char *s2);
+void		sort_env_array(t_env_dict **arr, int n);
+int			env_dict_size(t_env_dict *env);
+int			process_export_arg(t_mini *mini, char *arg);
+int			process_export_assignment(t_mini *mini, char *arg, char *equal_sign);
+int			process_export_name(t_mini *mini, char *arg);
+int			run_export(t_mini *mini, t_command *cmd);
+int			print_sorted_env(t_mini *mini);
+
+//export but located in env archive
+int			create_env_var(t_mini *mini, char *key);
+int			is_valid_var_name(char *name);
+
 //cd
 int			run_cd(t_mini *mini, t_command *cmd);
 char		*set_env_path(t_mini *mini, t_command *cmd, char *old_pwd);
 char		*envpath_error(char *old, char *message);
-void		create_env_var(t_mini *mini, char *key, char *value);
+void		cd_create_env_var(t_mini *mini, char *key, char *value);
 void		update_env_var(t_mini *mini, char *key, char *value);
 char		*get_env_var_value(t_env_dict *env_dict, char *key);
 t_env_dict	*find_env_var(t_env_dict *env_dict, char *key);

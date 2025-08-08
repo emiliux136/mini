@@ -6,7 +6,7 @@
 /*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:07:53 by emilgarc          #+#    #+#             */
-/*   Updated: 2025/08/07 12:47:38 by emilgarc         ###   ########.fr       */
+/*   Updated: 2025/08/08 16:47:53 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	update_env_var(t_mini *mini, char *key, char *value)
 		env_var->value = ft_strdup(value);
 	}
 	else
-		create_env_var(mini, key, value);
+		cd_create_env_var(mini, key, value);
 }
 
 // Helper function to create an environment variable if not exists.
-void	create_env_var(t_mini *mini, char *key, char *value)
+void	cd_create_env_var(t_mini *mini, char *key, char *value)
 {
 	t_env_dict	*new_var;
 	t_env_dict	*last;

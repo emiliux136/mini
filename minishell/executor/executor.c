@@ -6,7 +6,7 @@
 /*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 12:06:37 by kali              #+#    #+#             */
-/*   Updated: 2025/08/07 15:36:17 by emilgarc         ###   ########.fr       */
+/*   Updated: 2025/08/08 15:09:10 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	execute_builtin(t_mini *mini, t_command *cmd)
 		return (run_cd(mini, cmd));
 	else if (!ft_strncmp(cmd -> command_name[0], "pwd", 4))
 		return (run_pwd(mini, cmd));
-//	else if (!ft_strncmp(cmd -> command_name[0], "export", 7))
-//		return (run_export(mini, cmd));
+	else if (!ft_strncmp(cmd -> command_name[0], "export", 7))
+		return (run_export(mini, cmd));
 //	else if (!ft_strncmp(cmd -> command_name[0], "unset", 6))
 //		return (run_unset(mini, cmd));
 	else if (!ft_strncmp(cmd -> command_name[0], "env", 4))
