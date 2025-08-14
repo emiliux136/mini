@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kali <kali@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 12:52:38 by kali              #+#    #+#             */
-/*   Updated: 2025/07/30 13:56:20 by kali             ###   ########.fr       */
+/*   Updated: 2025/08/14 13:22:26 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	new_command(t_mini *mini, t_command *cmd)
 	}
 }
 
+// 130 es el código de salida de ctrl c.
 void	parser(t_mini *mini)
 {
 	t_command	*cmd;
@@ -72,7 +73,7 @@ void	parser(t_mini *mini)
 			tkn = proccess_token(mini, tkn, cmd);
 		if (g_signal)
 		{
-			mini -> exit_status = 130; //código de salida de ctrl c
+			mini -> exit_status = 130;
 			free(cmd);
 			g_signal = 0;
 			break ;

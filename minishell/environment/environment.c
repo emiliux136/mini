@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   environment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kali <kali@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 06:41:36 by kali              #+#    #+#             */
-/*   Updated: 2025/08/08 13:51:15 by kali             ###   ########.fr       */
+/*   Updated: 2025/08/14 13:15:45 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*get_env_item(t_env_dict *envp, char *var_name)
 		return (NULL);
 	while (envp)
 	{
-		if (ft_strlen(envp -> key) == var_len && ft_strncmp(envp -> key, var_name, var_len) == 0)
+		if (ft_strlen(envp -> key) == var_len
+			&& ft_strncmp(envp -> key, var_name, var_len) == 0)
 			return (ft_strdup(envp -> value));
 		envp = envp -> next;
 	}

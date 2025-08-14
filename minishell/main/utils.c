@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kali <kali@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:29:37 by acarro-v          #+#    #+#             */
-/*   Updated: 2025/08/06 13:27:57 by kali             ###   ########.fr       */
+/*   Updated: 2025/08/14 13:19:06 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	ft_error(char *message)
 {
 	printf("%s\n", message);
-	return(1);
+	return (1);
 }
