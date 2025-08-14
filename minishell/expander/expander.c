@@ -6,7 +6,7 @@
 /*   By: kali <kali@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 06:03:25 by kali              #+#    #+#             */
-/*   Updated: 2025/08/06 15:02:13 by kali             ###   ########.fr       */
+/*   Updated: 2025/08/08 13:10:16 by kali             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*resolve_value(t_mini *mini, char **line)
 		var_to_expand = ft_calloc(sizeof(char), 4096);
 		while (ft_isalnum(**line) || **line == '_')
 			(var_to_expand)[i++] = *(*line)++;
-		value = get_env_item(mini -> envp, var_to_expand);
+		value = get_env_item(mini -> env_dict, var_to_expand);
 		free(var_to_expand);
 	}
 	return (value);

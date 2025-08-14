@@ -6,27 +6,24 @@
 /*   By: kali <kali@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 06:41:36 by kali              #+#    #+#             */
-/*   Updated: 2025/07/26 07:49:26 by kali             ###   ########.fr       */
+/*   Updated: 2025/08/08 13:51:15 by kali             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-char	*get_env_item(char **envp, char *var_name)
+char	*get_env_item(t_env_dict *envp, char *var_name)
 {
-	int	i;
-	int	var_len;
+	size_t	var_len;
 
 	var_len = ft_strlen(var_name);
 	if (var_len == 0)
 		return (NULL);
-	i = 0;
-	while (envp[i])
+	while (envp)
 	{
-		if (ft_strncmp(envp[i], var_name, var_len) == 0
-			&& envp[i][var_len] == '=')
-			return (ft_strdup(envp[i] + var_len + 1));
-		i++;
+		if (ft_strlen(envp -> key) == var_len && ft_strncmp(envp -> key, var_name, var_len) == 0)
+			return (ft_strdup(envp -> value));
+		envp = envp -> next;
 	}
 	return (ft_strdup(""));
 }

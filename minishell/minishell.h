@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kali <kali@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:29:33 by acarro-v          #+#    #+#             */
-/*   Updated: 2025/08/08 16:49:04 by emilgarc         ###   ########.fr       */
+/*   Updated: 2025/08/08 13:22:13 by kali             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int			expand_word(t_mini *mini, char **line, char **word);
 char		*resolve_value(t_mini *mini, char **line);
 
 // Environment
-char		*get_env_item(char **envp, char *var_name);
+char		*get_env_item(t_env_dict *envp, char *var_name);
 t_env_dict	*ft_get_env_dict(char **envp);
 
 // Executor
