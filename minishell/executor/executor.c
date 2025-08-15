@@ -5,13 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/22 12:06:37 by kali              #+#    #+#             */
-/*   Updated: 2025/08/14 13:16:32 by emilgarc         ###   ########.fr       */
+/*   Created: 2025/08/15 17:12:37 by emilgarc          #+#    #+#             */
+/*   Updated: 2025/08/15 17:22:08 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//Hace falta hacer un wait_execute, para que cada
-//proceso hijo o ejecución de comando se finalice correctamente
 
 #include "../minishell.h"
 
@@ -48,29 +45,31 @@ void	run_builtin(t_mini *mini, t_command *cmd)
 
 void	run_cmd(t_mini *mini, t_command *cmd)
 {
-	if (!cmd -> command_name[0])
-		cmd -> command_name[0] = ft_strdup("");
-	if (!ft_strncmp(cmd -> command_name[0], "echo", 5)
-		|| !ft_strncmp(cmd -> command_name[0], "cd", 3)
-		|| !ft_strncmp(cmd -> command_name[0], "pwd", 4)
-		|| !ft_strncmp(cmd -> command_name[0], "export", 7)
-		|| !ft_strncmp(cmd -> command_name[0], "unset", 6)
-		|| !ft_strncmp(cmd -> command_name[0], "env", 4)
-		|| !ft_strncmp(cmd -> command_name[0], "exit", 5))
+	if (!cmd->command_name[0])
+		cmd->command_name[0] = ft_strdup("");
+	if (!ft_strncmp(cmd->command_name[0], "echo", 5)
+		|| !ft_strncmp(cmd->command_name[0], "cd", 3)
+		|| !ft_strncmp(cmd->command_name[0], "pwd", 4)
+		|| !ft_strncmp(cmd->command_name[0], "export", 7)
+		|| !ft_strncmp(cmd->command_name[0], "unset", 6)
+		|| !ft_strncmp(cmd->command_name[0], "env", 4)
+		|| !ft_strncmp(cmd->command_name[0], "exit", 5))
 		run_builtin(mini, cmd);
-//	else
-//		run_external(mini, cmd);
+	else
+		cmd->exit_code = run_external(mini, cmd);
 }
 
+//output control with the global signal, must be handled for the externals
 void	wait_execute(t_mini *mini)
 {
 	t_command	*cmd;
 
-	cmd = mini -> command_list;
+	cmd = mini->command_list;
 	while (cmd)
 	{
-		mini -> exit_status = WEXITSTATUS(cmd -> exit_code);
-		cmd = cmd -> next;
+		if (cmd->exit_code != -1)
+			mini->exit_status = cmd->exit_code;
+		cmd = cmd->next;
 	}
 }
 

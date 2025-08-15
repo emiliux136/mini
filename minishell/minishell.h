@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kali <kali@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: emilgarc <emilgarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 12:29:33 by acarro-v          #+#    #+#             */
-/*   Updated: 2025/08/08 13:22:13 by kali             ###   ########.fr       */
+/*   Updated: 2025/08/15 17:07:57 by emilgarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,22 @@ int			export_strcmp(const char *s1, const char *s2);
 void		sort_env_array(t_env_dict **arr, int n);
 int			env_dict_size(t_env_dict *env);
 int			process_export_arg(t_mini *mini, char *arg);
-int			process_export_assignment(t_mini *mini, char *arg, char *equal_sign);
+int			process_export_assignment(t_mini *mini,
+				char *arg, char *equal_sign);
 int			process_export_name(t_mini *mini, char *arg);
 int			run_export(t_mini *mini, t_command *cmd);
 int			print_sorted_env(t_mini *mini);
+
+/* external commands execution */
+int			ipath(char **envp);
+void		freepath(char **paths);
+int			pathexit(void);
+int			envpexit(void);
+char		*join_path(const char *dir, const char *cmd);
+int			is_executable(const char *path);
+char		*find_in_path(const char *cmd, char **envp, int i);
+int			run_external(t_mini *mini, t_command *cmd);
+char		*path_handling(t_mini *mini, t_command *cmd);
 
 //export but located in env archive
 int			create_env_var(t_mini *mini, char *key);

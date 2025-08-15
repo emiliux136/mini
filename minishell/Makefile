@@ -38,7 +38,10 @@ SRC_BUILTINS		=	./builtins/cd_auxiliar.c \
 									./builtins/mini_pwd.c \
 									./builtins/mini_export.c \
 									./builtins/export_auxiliar.c \
-									./builtins/mini_unset.c
+									./builtins/mini_unset.c \
+									./builtins/mini_external.c \
+									./builtins/external_auxiliar.c \
+									./builtins/external_utils.c 
 SRC_ENV				=	./environment/environment.c
 SRC_EXECUTOR		=	./executor/executor.c \
 									./executor/redirections.c
