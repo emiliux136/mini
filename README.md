@@ -12,16 +12,16 @@
 
 Este proyecto implementa un ciclo completo de ejecución de comandos con las siguientes características:
 
-* [cite_start]**Lexer & Parser:** División de la entrada en tokens y organización en estructuras de comandos.
-* [cite_start]**Gestión de Comillas:** Soporte para comillas simples (`'`) y dobles (`"`) con expansión de variables.
-* [cite_start]**Redirecciones y Pipes:** Manejo de entrada/salida (`<`, `>`, `>>`) y el operador pipe (`|`) para encadenar comandos.
-* [cite_start]**Heredoc:** Implementación de `<<` para entradas multilínea.
+* **Lexer & Parser:** División de la entrada en tokens y organización en estructuras de comandos.
+* **Gestión de Comillas:** Soporte para comillas simples (`'`) y dobles (`"`) con expansión de variables.
+* **Redirecciones y Pipes:** Manejo de entrada/salida (`<`, `>`, `>>`) y el operador pipe (`|`) para encadenar comandos.
+* **Heredoc:** Implementación de `<<` para entradas multilínea.
 * [cite_start]**Variables de Entorno:** Gestión dinámica mediante un diccionario (linked list) de `env`.
 
 ### Built-ins Implementados
-* [cite_start]`echo` (con opción `-n`).
-* [cite_start]`cd` (actualiza `PWD` y `OLDPWD`).
-* [cite_start]`pwd`, `export`, `unset`, `env` y `exit`.
+* `echo` (con opción `-n`).
+* `cd` (actualiza `PWD` y `OLDPWD`).
+* `pwd`, `export`, `unset`, `env` y `exit`.
 
 ---
 
@@ -43,7 +43,7 @@ Este proyecto implementa un ciclo completo de ejecución de comandos con las sig
 
 ```bash
 # Clonar el repositorio
-git clone [https://github.com/tu-usuario/minishell.git](https://github.com/tu-usuario/minishell.git)
+git clone [https://github.com/emiliux136/mini.git](https://github.com/emiliux136/mini)
 cd minishell
 
 # Compilar
