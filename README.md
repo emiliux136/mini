@@ -39,7 +39,7 @@ Este proyecto implementa un ciclo completo de ejecución de comandos con las sig
 ## 💻 Instalación y Uso
 
 ### Compilación
-[cite_start]El proyecto utiliza un `Makefile` configurado con flags de error estrictos (`-Wall -Wextra -Werror`)[cite: 2].
+El proyecto utiliza un `Makefile` configurado con flags de error estrictos (`-Wall -Wextra -Werror`)[cite: 2].
 
 ```bash
 # Clonar el repositorio
